@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>com.web.cal</groupId>
   <artifactId>webapp</artifactId>
   <packaging>war</packaging>
@@ -14,6 +14,8 @@
     <maven.compiler.target>11</maven.compiler.target> <!-- Specify Java target version -->
     <maven.compiler.release>11</maven.compiler.release> <!-- Recommended for modern JDKs -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Set file encoding -->
+    <sonar.host.url>http://3.88.17.8:9000</sonar.host.url> <!-- SonarQube server URL -->
+    <sonar.login>squ_1d2cdda0462691f40186f813c15f334a9a6242fc</sonar.login> <!-- SonarQube authentication token -->
   </properties>
 
   <dependencies>
@@ -55,6 +57,20 @@
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
+      </plugin>
+
+      <!-- SonarQube Plugin -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>4.0.0.4121</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>sonar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
